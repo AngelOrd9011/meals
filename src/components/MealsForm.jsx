@@ -22,8 +22,9 @@ const MealsForm = ({ setSelected, setMeals, count, setCount, season, setSeason, 
 	};
 
 	const onCountChange = (value) => {
-		let _value = value;
+		let _value = Number(value);
 		if (_value > 10) _value = 10;
+		if (_value < 0) _value = 1;
 		setCount(_value);
 	};
 

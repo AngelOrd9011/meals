@@ -142,3 +142,10 @@ input:checked + .slider:before {
 		background: linear-gradient(#2196f3 10%, 30%, #4a83e2 90%);
 	}
 }
+
+.meal-button {
+	height: 3rem;
+	background-color: transparent !important;
+	padding: 0 !important;
+	margin-bottom: 2px;
+}

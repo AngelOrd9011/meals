@@ -11,7 +11,7 @@ const MealsList = ({ meals }) => {
 		<section className="meals-list">
 			<ul>
 				{meals.map((meal, index) => {
-					return <li key={index}>{meal.name + ' - ' + showIngredients(meal)}</li>;
+					return <li key={'meal-' + index}>{meal.name + ' - ' + showIngredients(meal)}</li>;
 				})}
 			</ul>
 		</section>
