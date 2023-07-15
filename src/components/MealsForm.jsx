@@ -3,10 +3,12 @@ import { MEALS } from '../constants';
 
 const MealsForm = ({ setSelected, setMeals, count, setCount, season, setSeason, meals }) => {
 	const onExecution = () => {
+		let _meals = [...meals];
 		let _selected = [];
 		for (let i = 1; i <= count; i++) {
-			let randomItem = Math.floor(Math.random() * meals.length);
-			_selected.push(meals[randomItem]);
+			let randomItem = Math.floor(Math.random() * _meals.length);
+			_selected.push(_meals[randomItem]);
+			_meals.splice(randomItem, 1);
 		}
 		setSelected(_selected);
 	};
@@ -17,6 +19,12 @@ const MealsForm = ({ setSelected, setMeals, count, setCount, season, setSeason, 
 		setMeals(() => {
 			return MEALS.filter((item) => item.season === _season || item.season === 'ANY');
 		});
+	};
+
+	const onCountChange = (value) => {
+		let _value = value;
+		if (_value > 10) _value = 10;
+		setCount(_value);
 	};
 
 	return (
@@ -34,7 +42,7 @@ const MealsForm = ({ setSelected, setMeals, count, setCount, season, setSeason, 
 					<label htmlFor="count" className="small-text">
 						No. de resultados{' '}
 					</label>
-					<input type="number" id="count" name="count" value={count} min="1" max="10" onChange={(e) => setCount(e.target.value)} />
+					<input type="number" id="count" name="count" value={count} min="1" max="10" onChange={(e) => onCountChange(e.target.value)} />
 				</div>
 			</section>
 			<section className="play-button">

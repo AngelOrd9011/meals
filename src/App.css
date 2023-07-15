@@ -130,3 +130,15 @@ input:checked + .slider:before {
 .small-text {
 	font-size: 0.8rem;
 }
+
+@media (prefers-color-scheme: light) {
+	.results-list li {
+		border-bottom: #000 solid 2px;
+	}
+	.slider:before {
+		background-color: #fff;
+	}
+	input:checked + .slider {
+		background: linear-gradient(#2196f3 10%, 30%, #4a83e2 90%);
+	}
+}
